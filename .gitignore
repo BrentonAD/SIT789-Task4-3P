@@ -1,5 +1,6 @@
 # Ignore raw images
 images
+annotations
 
 *.bundle.*
 lib/
