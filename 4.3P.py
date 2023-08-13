@@ -22,8 +22,7 @@ for cls in classes:
     # Get the list of image files for that class
     files = [file for file in os.listdir() if file.startswith(cls)]
     # Shuffle the files randomly
-    random.seed(42, version=1)
-    random.shuffle(files)
+    random.Random(42).shuffle(files)
     # Calculate the number of files for each split
     n_train = int(len(files) * train_ratio)
     n_val = int(len(files) * val_ratio)
