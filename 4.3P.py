@@ -9,7 +9,8 @@ val_ratio = 0.3
 test_ratio = 0.3
 
 # Set the directory where the images are stored
-os.chdir("C:/Users/nsrih/Downloads/oxford-iiit-pet/images")
+# Assumes that images are in the same directory as notebook
+os.chdir("./images")
 
 # Create the output directories for each split
 os.makedirs("train", exist_ok=True)
@@ -21,6 +22,7 @@ for cls in classes:
     # Get the list of image files for that class
     files = [file for file in os.listdir() if file.startswith(cls)]
     # Shuffle the files randomly
+    random.seed(42)
     random.shuffle(files)
     # Calculate the number of files for each split
     n_train = int(len(files) * train_ratio)
